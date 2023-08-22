@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <title>Music player</title>
+    <link rel="icon" href="icon/musicPlayer.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="headerDiv">
+        <h1 id="textHeader">Music player</h1>
+        <div class="searchMusicDiv">
+            <input type="text" id="searchMusicInput" placeholder="search">
+            <button id="searchMusicButton" class="searchMusicButtons">
+                <img src="icon/search.png" class="searchMusicButtons">
+            </button>
+            <button id="searchMusicCancelButton" class="searchMusicButtons hidden">
+                <img src="icon/close.png" class="searchMusicButtons">
+            </button>
+        </div>
+    </div>
+
+    <div class="playListDiv">
+        <div class="musicDiv 111">
+            <img src="cover/Jorge Méndez - Dawn.jpg" alt="Jorge Méndez - Dawn" class="coverMusics 111">
+            <p class="musicTitle 111">Dawn</p>
+            <p class="musicSinger 111">Jorge Méndez</p>
+        </div>
+        <div class="musicDiv 112">
+            <img src="cover/Vesky - Desolate.jpg" alt="Vesky - Desolate" class="coverMusics 112">
+            <p class="musicTitle 112">Desolate</p>
+            <p class="musicSinger 112">Vesky</p>
+        </div>
+        <div class="musicDiv 113">
+            <img src="cover/Vesky - Endless.jpg" alt="Vesky - Endless" class="coverMusics 113">
+            <p class="musicTitle 113">Endless</p>
+            <p class="musicSinger 113">Vesky</p>
+        </div>
+        <div class="musicDiv 114">
+            <img src="cover/Jurrivh - Fantasy World.jpg" alt="Jurrivh - Fantasy World" class="coverMusics 114">
+            <p class="musicTitle 114">Fantasy World</p>
+            <p class="musicSinger 114">Jurrivh</p>
+        </div>
+        <div class="musicDiv 115">
+            <img src="cover/Christoffer Franzen - Meadow.jpg" alt="Christoffer Franzen - Meadow" class="coverMusics 115">
+            <p class="musicTitle 115">Meadow</p>
+            <p class="musicSinger 115">Christoffer Franzen</p>
+        </div>
+        <div class="musicDiv 116">
+            <img src="cover/S.A.Karl - Near Dawn.jpg" alt="S.A.Karl - Near Dawn" class="coverMusics 116">
+            <p class="musicTitle 116">Near Dawn</p>
+            <p class="musicSinger 116">S.A.Karl</p>
+        </div>
+        <div class="musicDiv 117">
+            <img src="cover/I-Human - Overthinker.jpg" alt="I-Human - Overthinker" class="coverMusics 117">
+            <p class="musicTitle 117">Overthinker</p>
+            <p class="musicSinger 117">I-Human</p>
+        </div>
+        <div class="musicDiv 118">
+            <img src="cover/John Ozbay - Pebbles.jpg" alt="John Ozbay - Pebbles" class="coverMusics 118">
+            <p class="musicTitle 118">Pebbles</p>
+            <p class="musicSinger 118">John Ozbay</p>
+        </div>
+        <div class="musicDiv 119">
+            <img src="cover/Tony Anderson & Dennis Hamm - Skyline.jpg" alt="Tony Anderson & Dennis Hamm" class="coverMusics 119">
+            <p class="musicTitle 119">Skyline</p>
+            <p class="musicSinger 119">Tony Anderson & Dennis Hamm</p>
+        </div>
+        <div class="musicDiv 120">
+            <img src="cover/Christoffer Franzen - The Light In Your Eyes.jpg" alt="hristoffer Franzen - The Light In Your Eyes" class="coverMusics 120">
+            <p class="musicTitle 120">The Light In Your Eyes</p>
+            <p class="musicSinger 120">Christoffer Franzen</p>
+        </div>
+        <div id="notFoundMessageDiv" class="hidden">
+            <p id="notFoundMessage">The desired song or singer was not found</p>
+        </div>
+    </div>
+
+    <div class="playMusicDiv">
+
+        <audio src="" id="audioElement" preload="metadata"></audio>
+        <img src="" alt="" id="coverMusicPlayed">
+        
+        <button id="closePlayMusicDivButton">
+            <img src="icon/close.png" class="searchMusicButtons">
+        </button>
+
+        <div class="controlButtonsMain controlButtons">
+
+            <div class="controlButtons firstControlButtons">
+                <button id="previousMusicButton" class="controlButtons">
+                    <img class="controlButtonIcon" src="icon/previous.png" alt="">
+                </button>
+                <button id="playMusicButton" class="controlButtons">
+                    <img class="controlButtonIcon playAndPause" src="icon/play.png" alt="">
+                </button>
+                <button id="pauseMusicButton" class="controlButtons hidden">
+                    <img class="controlButtonIcon playAndPause" src="icon/pause.png" alt="">
+                </button>
+                <button id="nextMusicButton" class="controlButtons">
+                    <img class="controlButtonIcon" src="icon/next.png" alt="">
+                </button>
+            </div>
+
+            <div class="controlButtons secondControlButtons">
+                <button id="adjustVolumeMusicButton" class="controlButtons">
+                    <img class="controlButtonIcon" src="icon/speaker.png" alt="">
+                </button>
+                <input type="range" id="adjustVolumeMusicRangeInput" class="hidden" value="100"> 
+                <button id="orderStatusPlaylistButton" class="controlButtons">
+                    <img class="controlButtonIcon" src="icon/playList.png" alt="">
+                </button>
+                <button id="downloadMusicButton" class="controlButtons">
+                    <a id="downloadMusicA"  href="" download>
+                        <img class="controlButtonIcon" src="icon/download.png" alt="">
+                    </a>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="musicTimeDiv">
+            <p id="currentTimeMinute" class="musicTime">00</p>
+            <p id="currentTimeMinute" class="musicTime">:</p>
+            <p id="currentTimeSecond" class="musicTime">00</p>
+            <input type="range" id="timeLineMusic" value="0">
+            <p id="durationTimeMinute" class="musicTime">00</p>
+            <p id="durationTimeMinute" class="musicTime">:</p>
+            <p id="durationTimeSecond" class="musicTime">00</p>
+        </div>
+
+    </div>
+
+    <script>
+        const viewport = document.querySelector("meta[name=viewport]");
+        addEventListener("load", setViewport);
+        function setViewport() {
+            viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);
+        }
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

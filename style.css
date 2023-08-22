@@ -1,0 +1,720 @@
+/************************************************ BODY ************************************************/
+
+body {
+    overflow: hidden;
+    background-color: rgb(18, 18 ,18);
+}
+
+/*********************************************** header ***********************************************/
+
+div.headerDiv {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: rgb(30, 30, 30);
+}
+
+h1#textHeader {
+    position: relative;
+    top: -4%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #FFFFE0;
+}
+
+h1#textHeader.hidden {
+    display: none;
+}
+
+div.searchMusicDiv {
+    position: absolute;
+    top: 4%;
+    right: 1%;
+}
+
+#searchMusicInput {
+    width: 75%;
+    float: left;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 125%;
+    border-style: none;
+    border-radius: 50px;
+    border: 1px solid black;
+    color: #FFFFE0;
+    background-color: rgb(30, 30, 30);
+}
+
+#searchMusicInput:focus {
+    border-color: #FFFFE0;
+}
+
+button.searchMusicButtons {
+    margin: 0 0 0 1%;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(30, 30, 30);
+}
+
+img.searchMusicButtons {
+    width: 20px;
+    height: 20px;
+}
+
+button.searchMusicButtons.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 414px) {
+
+    div.headerDiv {
+        border-radius: 10px;
+    }
+
+    h1#textHeader {
+        top: -6%;
+    }
+
+    #searchMusicInput {
+        display: none;
+        font-size: 150%;
+    }
+
+    #searchMusicInput.mobileMode {
+        display: none;
+    }
+
+    div.searchMusicDiv {
+        right: 3%
+    }
+
+    div.searchMusicDiv.mobileMode {
+        width: 100%;
+        position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button.searchMusicButtons.mobileMode {
+        position: absolute;
+        right: 3%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+   
+    #searchMusicInput {
+        display: none;
+    }
+
+    div.searchMusicDiv {
+        right: 3%
+    }
+
+    div.searchMusicDiv.mobileMode {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: static;
+    }
+
+    button.searchMusicButtons.mobileMode {
+        position: absolute;
+        right: 3%;
+    }
+
+}
+
+@media screen and (orientation:landscape) and (max-width: 915px) and (max-height: 414px) {
+
+    div.headerDiv {
+        height: 15%;
+    }
+
+    h1#textHeader {
+        font-size: 150%;
+    }
+
+    div.searchMusicDiv {
+        top: 6%;
+        right: 2%;
+    }
+
+}
+
+/*********************************************** playList ***********************************************/
+
+div.playListDiv {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    overflow-y: auto;
+    border-radius: 10px;
+    background-color: rgb(30, 30, 30);
+}
+
+div.musicDiv {
+    width: 90%;
+    height: 20%;
+    display: inline-block;
+    position: relative;
+    padding-left: 10%;
+    cursor: pointer;
+}
+
+div.musicDiv.selected {
+    background-color: rgb(50, 50, 50);
+}
+
+div.musicDiv.hidden {
+    display: none;
+}
+
+div.musicDiv:hover {
+    background-color: rgb(65, 65, 65);
+}
+
+img.coverMusics {
+    width: auto;
+    height: 87%;
+    display: block;
+    position: absolute;
+    top: 7%;
+    left: 0.5%;
+    border-radius: 10px;
+}
+
+p.musicTitle {
+    display: block;
+    margin-top: 1.5%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 130%;
+    color: rgb(200, 200, 200);
+}
+
+p.musicSinger {
+    display: block;
+    margin-top: -2%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 100%;
+    color: rgb(150, 150, 150);
+}
+
+div#notFoundMessageDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 130%;
+    color: rgb(200, 200, 200);
+}
+
+div#notFoundMessageDiv.hidden {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px grey; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(100, 100, 100); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: col-resize;
+    background: rgb(150, 150, 150); 
+}
+
+@media screen and (max-width: 414px) {
+
+    body {
+        height: 100%;
+    }
+
+    #searchMusicInput.mobileMode {
+        display: block;
+    }
+
+    div.playListDiv {
+        width: 100%;
+        height: 90%;
+        position: static;
+        margin: 1% 0 2% 0;
+        border-radius: 10px 0 0 10px;
+    }
+
+    div.playListDiv.openPlayMusicDiv {
+        animation-name: chagePlayListHeight;
+        animation-duration: 2s;
+        height: 75.75%;
+    }
+
+    @keyframes chagePlayListHeight {
+        from {
+            height: 90%;
+        }
+
+        to {
+            height: 75.75%;
+        }
+    }
+
+    div.playListDiv.closePlayMusicDiv {
+        animation-name: undoChagePlayListHeight;
+        animation-duration: 2s;
+        height: 90%;
+    }
+
+    @keyframes undoChagePlayListHeight {
+        from {
+            height: 75.75%;
+        }
+
+        to {
+            height: 90%;
+        }
+    }
+
+    div.musicDiv {
+        width: 78%;
+        height: 12.58%;
+        padding-left: 22%;
+    }
+
+    div.musicDiv.openPlayMusicDiv {
+        animation-name: chageMusicDivHeight;
+        animation-duration: 2s;
+        height: 15%;
+    }
+    
+    @keyframes chageMusicDivHeight {
+        from {
+            height: 12.58%;
+        }
+    
+        to {
+            height: 15%;
+        }
+    }
+    
+    div.musicDiv.closePlayMusicDiv {
+        animation-name: undoChageMusicDivHeight;
+        animation-duration: 2s;
+        height: 12.58%;
+    }
+    
+    @keyframes undoChageMusicDivHeight {
+        from {
+            height: 15%;
+        }
+    
+        to {
+            height: 12.58%;
+        }
+    }
+
+    img.coverMusics {
+        width: 17%;
+        top: 6.5%;
+        left: 1%;
+    }
+
+    p.musicTitle {
+        position: absolute;
+        top: 2%;
+        font-size: 130%;
+    }
+    
+    p.musicSinger {
+        position: absolute;
+        bottom: 2%;
+        font-size: 100%;
+    }
+
+    div#notFoundMessageDiv {
+        font-size: 100%;
+    }
+
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgb(165, 165, 165); 
+    }
+}
+
+@media screen and (max-height: 740px) {
+
+    p.musicTitle {
+        font-size: 130%;
+    }
+    
+    p.musicSinger {
+        font-size: 95%;
+    }
+
+}
+
+@media screen and (min-height: 850px) {
+
+    p.musicTitle {
+        top: 10%;
+    }
+    
+    p.musicSinger {
+        bottom: 9%;
+    }
+
+}
+
+@media screen and (min-width: 1280px) {
+
+    div.musicDiv {
+        padding-left: 10%;
+    }
+
+    p.musicTitle {
+        font-size: 110%;
+    }
+    
+    p.musicSinger {
+        font-size: 80%;
+    }
+
+}
+
+@media screen and (orientation:landscape) and (max-width: 915px) and (max-height: 414px) {
+
+    div.playListDiv {
+        width: 60%;
+        height: 50%;
+        top: 25%;
+        left: 20%;
+    }
+
+    div.musicDiv {
+        width: 91%;
+        padding-left: 9%;
+    }
+    
+    p.musicTitle {
+        margin-top: 0.5%;
+        font-size: 90%;
+    }
+    
+    p.musicSinger {
+        margin-bottom: 2%;
+        font-size: 60%;
+    }
+
+}
+
+/*********************************************** playMusicDiv ***********************************************/
+
+div.playMusicDiv {
+    width: 40%;
+    height: 16%;
+    display: block;
+    position: absolute;
+    bottom: -16%;
+    left: 25%;
+    float: left;
+    padding-left: 10%;
+    border-radius: 10px;
+    background-color: rgb(25, 25, 25);
+}
+
+div.playMusicDiv.openPlayMusicDiv {
+    animation-name: slidein;
+    animation-duration: 2s;
+    bottom: 0;
+}
+
+@keyframes slidein {
+    from {
+        bottom: -16%;
+    }
+  
+    to {
+        bottom: 0;
+    }
+}
+
+div.playMusicDiv.closePlayMusicDiv {
+    animation-name: slideout;
+    animation-duration: 2s;
+    animation-delay: 1;
+}
+
+@keyframes slideout {
+    from {
+        bottom: 0;
+    }
+  
+    to {
+        bottom: -16%;
+    }
+}
+
+img#coverMusicPlayed {
+    width: auto;
+    height: 90%;
+    display: block;
+    position: absolute;
+    top: 5%;
+    left: 0.5%;
+    border-radius: 10px;
+}
+
+div.controlButtonsMain {
+    display: block;
+    margin-top: 1.5%;
+    margin-left: -8%;
+}
+
+div.firstControlButtons {
+    width: 68%;
+    height: 55%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+
+div.secondControlButtons {
+    width: 25%;
+    height: 55%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.controlButtons {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: relative;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: none;
+    margin-left: 1rem;
+    font-size: 100%;
+    font-weight: normal;
+    border: none;
+    background-color: #FFFFE0;
+} 
+
+button.controlButtons.hidden {
+    display: none;
+}
+
+#playMusicButton, #pauseMusicButton {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+img.controlButtonIcon {
+    width: 100%;
+}
+
+img.playAndPause {
+    width: 90%;
+}
+
+input[type="range"]#adjustVolumeMusicRangeInput {
+    display: block;
+    width: 60%;
+    margin-left: 4%;
+}
+
+input[type="range"]#adjustVolumeMusicRangeInput.hidden {
+    display: none;
+}
+
+div.musicTimeDiv {
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: -0.5%;
+    margin-left: -8%;
+}
+
+p.musicTime {
+    color: rgb(200, 200, 200);
+}
+
+input[type="range"]#timeLineMusic {
+    width: 85%;
+    height: 20%;
+    margin: 0 1% 0 1%;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 20px;
+    -webkit-appearance: none;
+    background-color: rgb(75, 75,75);
+}
+
+input[type='range']#timeLineMusic::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+    background: #434343;
+    box-shadow: -300px 0 0 300px rgb(150, 150, 150);
+}
+
+button#closePlayMusicDivButton {
+    width: 3.25%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(25, 25, 25);
+}
+
+@media screen and (max-width: 414px) {
+    div.playMusicDiv {
+        width: 89%;
+        height: 14%;
+        left: 0%;
+        border-radius: 10px;
+        padding-left: 10%;
+    }
+    
+    img#coverMusicPlayed {
+        width: 22%;
+        top: 5%;
+        left: 1%;
+    }
+
+    div.controlButtonsMain {
+        margin-top: 1.5%;
+        margin-left: -8%;
+        margin-left: 15%;
+    }
+    
+    div.firstControlButtons {
+        width: 50%;
+        height: 55%;
+    }
+
+    div.secondControlButtons {
+        width: 50%;
+        height: 55%;
+    }
+    
+    button.controlButtons {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0 3% 0 3%;
+        font-size: 100%;
+        font-weight: normal;
+    } 
+
+    div.musicTimeDiv {
+        height: 35%;
+        padding-left: 20%;
+        margin-left: -5%;
+    }
+    
+    input[type="range"]#timeLineMusic {
+        width: 65%;
+        height: 30%;
+        margin: 0 3% 0 3%;
+    }
+      
+    button#closePlayMusicDivButton {
+        transform: scale(0.65);
+        height: auto;
+        position: absolute;
+        top: -4%;
+        right: 1%;
+        background-color: rgb(25, 25, 25);
+    }
+}
+
+
+@media screen and (min-width: 1280px) {
+
+    div.firstControlButtons {
+        width: 49%;
+    }
+
+    div.musicTimeDiv {
+        height: 35%;
+        margin-left: -10%;
+    }
+
+    button#closePlayMusicDivButton {
+        top: 1%;
+        right: 0.75%;
+    }
+
+}
+    
+@media screen and (orientation:landscape) and (max-width: 915px) and (max-height: 414px) {
+
+    div.playMusicDiv {
+        width: 50%;
+        height: 16%;
+        bottom: -16%;
+        left: 20%;
+    }
+
+    div.firstControlButtons {
+        width: 64%;
+        height: 55%;
+    }
+    
+    div.secondControlButtons {
+        width: 32%;
+        height: 55%;
+    }
+
+    button.controlButtons {
+        width: 1.75rem;
+        height: 1.75rem;
+    } 
+    
+    #playMusicButton, #pauseMusicButton {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    input[type="range"]#adjustVolumeMusicRangeInput {
+        width: 51%;
+    }
+
+    div.musicTimeDiv {
+        height: 35%;
+        padding-left: -0.5%;
+        margin-left: -6%;
+    }
+
+    input[type="range"]#timeLineMusic {
+        width: 78%;
+        height: 30%;
+        margin: 0 1% 0 1%;
+    }
+
+    button#closePlayMusicDivButton {
+        transform: scale(0.65);
+        top: 1%;
+        right: 1%;
+    }
+
+}
