@@ -380,22 +380,6 @@ div#notFoundMessageDiv.hidden {
 
 }
 
-@media screen and (min-width: 1280px) {
-
-    div.musicDiv {
-        padding-left: 10%;
-    }
-
-    p.musicTitle {
-        font-size: 110%;
-    }
-    
-    p.musicSinger {
-        font-size: 80%;
-    }
-
-}
-
 @media screen and (orientation:landscape) and (max-width: 915px) and (max-height: 414px) {
 
     div.playListDiv {
@@ -647,25 +631,6 @@ button#closePlayMusicDivButton {
     }
 }
 
-
-@media screen and (min-width: 1280px) {
-
-    div.firstControlButtons {
-        width: 49%;
-    }
-
-    div.musicTimeDiv {
-        height: 35%;
-        margin-left: -10%;
-    }
-
-    button#closePlayMusicDivButton {
-        top: 1%;
-        right: 0.75%;
-    }
-
-}
-    
 @media screen and (orientation:landscape) and (max-width: 915px) and (max-height: 414px) {
 
     div.playMusicDiv {
