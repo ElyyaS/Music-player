@@ -241,7 +241,7 @@ function selectPlayingMusic(event) {
     
     musicSelected = musics.find((element) => {
         musicSelectedIndex += 1;
-        return element.id == event.target.classList[1];
+        return element.id == event.target.dataset.id;
     });
 
     musicPlaying = musicSelected.id;
